@@ -1,7 +1,8 @@
 FROM node:16.18.0
 WORKDIR /app
 COPY package*.json /app/
-RUN npm i --registry=https://mirrors.cloud.tencent.com/npm/
+RUN npm i
+# --registry=https://mirrors.cloud.tencent.com/npm/
 COPY . /app
 RUN npm run build
 
