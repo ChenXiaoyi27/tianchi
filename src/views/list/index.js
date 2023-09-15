@@ -189,17 +189,19 @@ export default function ListView() {
   return (
     <div style={{ padding: 20 }}>
       <Button onClick={doLogout} type="link" style={{ float: 'right' }}>退出登录</Button>
-      <h1 style={{ marginBottom: 50 }}>你好，{user.user_name || ''}</h1>
+      <h1 style={{ marginBottom: 50, fontSize: 24, fontWeight: 'bold' }}>你好，{user.user_name || ''}</h1>
       <Button type="primary" onClick={addSite} style={{ marginBottom: 15, marginRight: 20 }}>新建网站</Button>
       <Button type="primary" onClick={addPage} style={{ marginBottom: 15 }}>新建页面</Button>
       {siteList.map(li => (
-        <div key={li.site_id} style={{ marginBottom: 30 }}>
-          <TagOutlined style={{ fontSize: 20, color: '#1890ff', margin: 'auto 5px' }} />
-          <h2 style={{ display: 'inline-block' }}>{li.site_name}</h2>
+        <div key={li.site_id} style={{ marginBottom: 50 }}>
+          {/* <TagOutlined style={{ fontSize: 20, color: '#1890ff', margin: 'auto 5px' }} /> */}
+          <img src="./site.png" width="20px" style={{ margin: 5, float: 'left' }} />
+          <h2 style={{ display: 'inline-block', fontSize: 18 }}>{li.site_name}</h2>
           <Button onClick={() => previewSite(li.site_id)} style={{ display: 'inline-block' }} size="small" type="link">网站预览</Button>
           <Table columns={columns} dataSource={dataSource[li.site_id]} rowKey="page_id" pagination={false} />
         </div>
       ))}
+      <img src="./mascot.png" width="100px" style={{ display: 'block', position: 'fixed', bottom: 5, right: 20 }} />
       <Modal
         title="新建网站"
         visible={siteVisible}
