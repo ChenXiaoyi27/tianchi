@@ -1,7 +1,9 @@
 import React from 'react';
-import { Button, Checkbox, Form, Input, message } from 'antd';
+import { Button, Checkbox, Form, Input, message, Row, Col, Divider } from 'antd';
 import { goHome } from '../../utils/utils';
 import { login } from '../../services';
+
+import LoginPage from '../components/LoginPage';
 
 const LoginView = () => {
   const onFinish = async (values) => {
@@ -26,16 +28,16 @@ const LoginView = () => {
   const goRegistry = () => {
     location.href = '/app.html#/registry';
   }
-  return (
-    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100vh' }}>
-      <h1>登录</h1>
+  const FormView = (
+    <div style={{ width: '100%' }}>
       <Form
         name="basic"
         labelCol={{
-          span: 8,
+          span: 0,
         }}
         wrapperCol={{
-          span: 8,
+          offset: 2,
+          span: 20,
         }}
         initialValues={{
           remember: true,
@@ -55,7 +57,7 @@ const LoginView = () => {
             },
           ]}
         >
-          <Input />
+          <Input size='large' placeholder="用户名" />
         </Form.Item>
 
         <Form.Item
@@ -68,26 +70,41 @@ const LoginView = () => {
             },
           ]}
         >
-          <Input.Password />
+          <Input.Password size='large' placeholder="密码" />
         </Form.Item>
 
         <Form.Item
           wrapperCol={{
-            offset: 8,
-            span: 8,
+            offset: 2,
+            span: 20,
           }}
         >
           <Button type="primary" htmlType="submit" size='large' style={{ width: '100%' }}>
             登录
           </Button>
         </Form.Item>
+        <Form.Item
+          wrapperCol={{
+            offset: 18,
+            span: 4
+          }}>
+          <Button type='link' onClick={goRegistry}>去注册</Button>
+        </Form.Item>
       </Form>
-      <div style={{ display: 'flex', justifyContent: 'end', width: '33%' }}>
-        <Button type='link' onClick={goRegistry}>去注册</Button>
-      </div>
-      <p>已有用户/密码：<br />
+    </div>
+  );
+  const BackImage = <img src="./back.png" width="700px" />
+  return (
+    <div>
+      <LoginPage
+        title="账号登录"
+        backImage={BackImage}
+        form={FormView}
+      />
+      <p style={{ position: 'fixed', bottom: '50px', right: '50px' }}>
+        已有用户/密码：<br />
         【默认组】admin/admin<br />
-        【默认组】陈晓怡/123456<br/>
+        【默认组】陈晓怡/123456<br />
         【小组一】admin2/admin2<br />
       </p>
     </div>
