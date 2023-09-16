@@ -37,9 +37,9 @@ const App = () => {
   }
   // 切换页面
   const togglePage = async (selectedKeys: Array<string>) => {
-    console.log('selectedKeys: ', selectedKeys);
     const page_id = selectedKeys[0];
-    const version_id = '';
+    const page = pageList.find(li => li.page_id === page_id);
+    const version_id = page.prod_version_id;// 生产版本
     const projectResponse = await getPageContent(page_id, version_id);
     if (!projectResponse || !projectResponse.schema || !projectResponse.packages) {
       setData({});

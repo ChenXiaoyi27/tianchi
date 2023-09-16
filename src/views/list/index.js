@@ -3,6 +3,7 @@ import { TagOutlined } from '@ant-design/icons';
 import { Space, Table, Tag, Button, Modal, Form, Input, message, Select } from 'antd';
 import { getPageLock, doPageLock, getSiteList, logout, getUserInfo, getPageList } from '../../services';
 import { goLogin } from '../../utils/utils';
+import moment from 'moment';
 
 export default function ListView() {
   /** 静态常量声明--start */
@@ -28,6 +29,8 @@ export default function ListView() {
   const [siteList, setsiteList] = useState([]);
   // 用户信息
   const [user, setuser] = useState({});
+  // 右下角mascot大小
+  const [mascotWidth, setmascotWidth] = useState(100);
   /** 状态变量声明--end */
   /** 事件方法定义--start */
   // 点击“新建页面”按钮，打开弹框
@@ -88,8 +91,12 @@ export default function ListView() {
     setsiteVisible(false);
   }
   // 预览页面
-  const toPreviewPage = (page_id) => {
-    window.open(`/preview.html?page_id=${page_id}`, '_blank');
+  const toPreviewPage = (page) => {
+    if (page.prod_version_id) {
+      window.open(`/preview.html?page_id=${page.page_id}&version_id=${page.prod_version_id}`, '_blank');
+    } else {
+      message.error('请先进入编辑->版本管理功能进行发布生产');
+    }
   }
   // 解锁
   const unLock = async (page_id) => {
@@ -143,7 +150,16 @@ export default function ListView() {
     let newDataSource = {};
     for (let site of sites) {
       const { site_id } = site;
-      newDataSource[site_id] = await getPageList(site_id);
+      let pages = await getPageList(site_id);
+      pages.map(page => {
+        if (page.prod_version_id) {
+          const prod_version = page.version.find(v => v.version_id === page.prod_version_id);
+          page.prod_version = prod_version ? moment(prod_version.created_at).format('YYYY-MM-DD HH:mm:ss') : '';
+        } else {
+          page.prod_version = '';
+        }
+      });
+      newDataSource[site_id] = pages;
     }
     setdataSource(newDataSource);
   }
@@ -158,6 +174,12 @@ export default function ListView() {
       title: '页面名称',
       dataIndex: 'page_name',
       key: 'page_name',
+    },
+    {
+      title: '生产版本',
+      dataIndex: 'prod_version',// 根据record.prod_version_id查询版本信息，展示created_at创建时间
+      key: 'prod_version',
+      render: (t) => t || '暂未发布'
     },
     {
       title: '修改时间',
@@ -177,9 +199,8 @@ export default function ListView() {
       key: 'action',
       render: (_, record) => (
         <Space size="middle">
-          <a key="preview" onClick={() => toPreviewPage(record.page_id)}>预览</a>
+          <a key="preview" onClick={() => toPreviewPage(record)}>预览生产</a>
           <a key="modify" onClick={() => toModifyPage(record.page_id)}>编辑</a>
-          {/* <a key="publish">发布</a> */}
           <a key="delete" onClick={() => deletePage(record.page_id)}>删除</a>
           {record.lock && <a key="unlock" onClick={() => unLock(record.page_id)}>解锁</a>}
         </Space>
@@ -197,11 +218,11 @@ export default function ListView() {
           {/* <TagOutlined style={{ fontSize: 20, color: '#1890ff', margin: 'auto 5px' }} /> */}
           <img src="./site.png" width="20px" style={{ margin: 5, float: 'left' }} />
           <h2 style={{ display: 'inline-block', fontSize: 18 }}>{li.site_name}</h2>
-          <Button onClick={() => previewSite(li.site_id)} style={{ display: 'inline-block' }} size="small" type="link">网站预览</Button>
+          <Button onClick={() => previewSite(li.site_id)} style={{ display: 'inline-block' }} size="small" type="link">网站预览（生产）</Button>
           <Table columns={columns} dataSource={dataSource[li.site_id]} rowKey="page_id" pagination={false} />
         </div>
       ))}
-      <img src="./mascot.png" width="100px" style={{ display: 'block', position: 'fixed', bottom: 5, right: 20 }} />
+      <img src="./mascot.png" width={mascotWidth} onClick={() => setmascotWidth(mascotWidth === 100 ? 20 : 100)} style={{ display: 'block', position: 'fixed', bottom: 5, right: 20, cursor: 'pointer' }} />
       <Modal
         title="新建网站"
         visible={siteVisible}

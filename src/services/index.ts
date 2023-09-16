@@ -56,6 +56,17 @@ export const getPageLock = async (page_id: string) => {
   const res = await (await fetch(`/api/page/lock/get?page_id=${page_id}`)).json();
   return res.data.lock;
 }
+// 修改页面
+export const doPageUpdate = async (page_id: string, newData: any) => {
+  const res = await (await fetch('/api/page/modify', {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ page_id, newData }),
+  })).json();
+  return res.success;
+}
 // 加锁/解锁，返回操作是否成功
 export const doPageLock = async (page_id: string, lock: boolean) => {
   const res = await (await fetch(`/api/page/lock?page_id=${page_id}&lock=${lock ? 'Y' : 'N'}`)).json();

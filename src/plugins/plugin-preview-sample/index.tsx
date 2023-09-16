@@ -1,5 +1,5 @@
 import { IPublicModelPluginContext } from '@alilc/lowcode-types';
-import { Button, Message } from '@alifd/next';
+import { Button, Message, Dialog } from '@alifd/next';
 import { getUrlParams, goHome } from '../../utils/utils';
 import { type PreviewUrlParams } from 'src/types';
 import { saveSchema, doPageLock } from '../../services';
@@ -36,7 +36,7 @@ const PreviewSamplePlugin = (ctx: IPublicModelPluginContext) => {
         },
         content: (
           <Button type="primary" onClick={() => doPreview()}>
-            预览
+            保存并预览
           </Button>
         ),
       });
