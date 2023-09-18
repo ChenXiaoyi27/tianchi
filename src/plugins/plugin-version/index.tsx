@@ -3,7 +3,6 @@ import { IPublicModelPluginContext, IPublicTypeRootSchema } from '@alilc/lowcode
 import { injectAssets } from '@alilc/lowcode-plugin-inject';
 import { Icon } from '@alifd/next'
 import VersionPanel from './VersionPanel';
-import assets from '../../services/assets.json';
 import './index.less';
 import { getUrlParams } from '../../utils/utils';
 import { getVersionList } from '../../services';

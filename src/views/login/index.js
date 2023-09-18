@@ -93,7 +93,7 @@ const LoginView = () => {
       </Form>
     </div>
   );
-  const BackImage = <img src="./back.png" width="700px" />
+  const BackImage = <img src="https://chenxiaoyi27.oss-cn-guangzhou.aliyuncs.com/picture/login.png" width="700px" />
   return (
     <div>
       <LoginPage

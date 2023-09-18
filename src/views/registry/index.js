@@ -112,7 +112,7 @@ const Registry = () => {
       </Form.Item>
     </Form>
   );
-  const BackImage = <img src="./registry.png" width="700px" />
+  const BackImage = <img src="https://chenxiaoyi27.oss-cn-guangzhou.aliyuncs.com/picture/registry.png" width="700px" />
   return (
     <LoginPage
       title="用户注册"

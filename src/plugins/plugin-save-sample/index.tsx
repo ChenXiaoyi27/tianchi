@@ -12,12 +12,10 @@ const SaveSamplePlugin = (ctx: IPublicModelPluginContext) => {
   return {
     async init() {
       const { skeleton, hotkey, config } = ctx;
-      const scenarioName = config.get('scenarioName');
       const { page_id } = getUrlParams() as PreviewUrlParams;
       // 请求保存接口
       const doSave = async () => {
         const old_version_id = ctx.plugins.VersionPlugin.data.currentVersion;
-        console.log('old_version_id: ', old_version_id);
         await saveSchema(page_id, old_version_id);
         // 保存后解锁，并返回首页
         await doPageLock(page_id, false);

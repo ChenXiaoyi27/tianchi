@@ -23,9 +23,8 @@ const SamplePreview = () => {
 
   async function init() {
     // const projectSchema = getProjectSchemaFromLocalStorage(scenarioName);
-    const { page_id } = getUrlParams() as PreviewUrlParams;
-    const version_id = '';
-    const projectResponse = await getPageContent(page_id, version_id) || { schema: {}, packages: [] };
+    const { page_id, version_id } = getUrlParams() as PreviewUrlParams;
+    const projectResponse = await getPageContent(page_id, version_id || '') || { schema: {}, packages: [] };
     const { packages } = projectResponse;
     const { componentsMap: componentsMapArray, componentsTree } = projectResponse.schema;
     const componentsMap: any = {};

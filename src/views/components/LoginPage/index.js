@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Checkbox, Form, Input, message, Row, Col, Divider } from 'antd';
+import { Row, Col } from 'antd';
 
 const LoginView = (props) => {
   return (
