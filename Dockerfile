@@ -2,7 +2,7 @@
 FROM anolis-registry.cn-zhangjiakou.cr.aliyuncs.com/openanolis/node:16.17.1-nslt-8.6
 WORKDIR /app
 COPY package*.json /app/
-RUN npm i
+RUN npm i --legacy-peer-deps
 # --registry=https://mirrors.cloud.tencent.com/npm/
 COPY . /app
 RUN npm run build
