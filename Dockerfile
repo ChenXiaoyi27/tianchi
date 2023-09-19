@@ -2,7 +2,8 @@
 FROM chenxiaoyi27/node:14.21.3
 WORKDIR /app
 COPY package*.json /app/
-RUN npm i --legacy-peer-deps
+RUN npm i
+# --legacy-peer-deps
 # --registry=https://mirrors.cloud.tencent.com/npm/
 COPY . /app
 RUN npm run build
