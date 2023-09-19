@@ -54,21 +54,21 @@
       ]
     },
     {
-      "package": "material-template-login",
-      "version": "0.1.4",
-      "library": "BizComp",
+      "package": "material-page-cxy",
+      "version": "0.1.1",
+      "library": "BizComps",
       "urls": [
-        "https://unpkg.com/material-template-login@0.1.4/build/lowcode/render/default/view.js",
-        "https://unpkg.com/material-template-login@0.1.4/build/lowcode/render/default/view.css"
+        "https://unpkg.com/material-page-cxy@0.1.1/build/lowcode/render/default/view.js",
+        "https://unpkg.com/material-page-cxy@0.1.1/build/lowcode/render/default/view.css"
       ],
       "editUrls": [
-        "https://unpkg.com/material-template-login@0.1.4/build/lowcode/view.js",
-        "https://unpkg.com/material-template-login@0.1.4/build/lowcode/view.css"
+        "https://unpkg.com/material-page-cxy@0.1.1/build/lowcode/view.js",
+        "https://unpkg.com/material-page-cxy@0.1.1/build/lowcode/view.css"
       ],
       "advancedUrls": {
         "default": [
-          "https://unpkg.com/material-template-login@0.1.4/build/lowcode/render/default/view.js",
-          "https://unpkg.com/material-template-login@0.1.4/build/lowcode/render/default/view.css"
+          "https://unpkg.com/material-page-cxy@0.1.1/build/lowcode/render/default/view.js",
+          "https://unpkg.com/material-page-cxy@0.1.1/build/lowcode/render/default/view.css"
         ]
       },
       "advancedEditUrls": {}
@@ -87,17 +87,19 @@
       }
     },
     {
-      "exportName": "MaterialTemplateLoginMeta",
+      "exportName": "MaterialPageCxyMeta",
       "npm": {
-        "package": "material-template-login",
-        "version": "0.1.4"
+        "package": "material-page-cxy",
+        "version": "0.1.1"
       },
-      "url": "https://unpkg.com/material-template-login@0.1.4/build/lowcode/meta.js",
+      "url": "https://unpkg.com/material-page-cxy@0.1.1/build/lowcode/meta.js",
       "urls": {
-        "default": "https://unpkg.com/material-template-login@0.1.4/build/lowcode/meta.js"
+        "default": "https://unpkg.com/material-page-cxy@0.1.1/build/lowcode/meta.js"
       },
       "advancedUrls": {
-        "default": ["https://unpkg.com/material-template-login@0.1.4/build/lowcode/meta.js"]
+        "default": [
+          "https://unpkg.com/material-page-cxy@0.1.1/build/lowcode/meta.js"
+        ]
       }
     }
   ],
