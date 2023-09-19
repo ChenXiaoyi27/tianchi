@@ -6,6 +6,7 @@ RUN npm i
 COPY . /app
 RUN npm run build
 
-FROM nginx:stable-alpine
+#FROM nginx:stable-alpine
+FROM registry.openanolis.cn/openanolis/nginx:1.14.1-8.6
 COPY --from=0 /app/build /usr/share/nginx/html
 COPY --from=0 /app/nginx.conf /etc/nginx/conf.d/default.conf
