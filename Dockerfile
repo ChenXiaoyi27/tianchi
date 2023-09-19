@@ -1,5 +1,5 @@
 #FROM node:16.18.0
-FROM anolis-registry.cn-zhangjiakou.cr.aliyuncs.com/openanolis/node:16.17.1-nslt-8.6
+FROM chenxiaoyi27/node:14.21.3
 WORKDIR /app
 COPY package*.json /app/
 RUN npm i --legacy-peer-deps
