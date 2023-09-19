@@ -41,7 +41,7 @@
     "uuid": "8.3.2"
   },
   "devDependencies": {
-    "@alib/build-scripts": "0.1.18",
+    "@alib/build-scripts": "0.1.32",
     "@alilc/lowcode-engine": "1.1.2",
     "@alilc/lowcode-engine-ext": "1.0.0",
     "@alilc/lowcode-types": "1.1.1",
