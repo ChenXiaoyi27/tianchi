@@ -1,5 +1,5 @@
 #FROM node:16.18.0
-FROM chenxiaoyi27/node:14.21.3
+FROM registry.cn-hangzhou.aliyuncs.com/chenxiaoyi/node14:latest
 WORKDIR /app
 COPY package*.json /app/
 RUN npm i
