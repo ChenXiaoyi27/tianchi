@@ -71,10 +71,7 @@ module.exports = ({ onGetWebpackConfig }) => {
       .proxy({
         '/api': {
           target: 'http://localhost:7001/',
-        },
-        // '/user': {
-        //   target: 'http://localhost:7001',
-        // }
+        }
       });
 
     config.module // fixes https://github.com/graphql/graphql-js/issues/1272

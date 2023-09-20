@@ -55,20 +55,20 @@
     },
     {
       "package": "material-page-cxy",
-      "version": "0.1.1",
+      "version": "0.1.2",
       "library": "BizComps",
       "urls": [
-        "https://unpkg.com/material-page-cxy@0.1.1/build/lowcode/render/default/view.js",
-        "https://unpkg.com/material-page-cxy@0.1.1/build/lowcode/render/default/view.css"
+        "https://unpkg.com/material-page-cxy@0.1.2/build/lowcode/render/default/view.js",
+        "https://unpkg.com/material-page-cxy@0.1.2/build/lowcode/render/default/view.css"
       ],
       "editUrls": [
-        "https://unpkg.com/material-page-cxy@0.1.1/build/lowcode/view.js",
-        "https://unpkg.com/material-page-cxy@0.1.1/build/lowcode/view.css"
+        "https://unpkg.com/material-page-cxy@0.1.2/build/lowcode/view.js",
+        "https://unpkg.com/material-page-cxy@0.1.2/build/lowcode/view.css"
       ],
       "advancedUrls": {
         "default": [
-          "https://unpkg.com/material-page-cxy@0.1.1/build/lowcode/render/default/view.js",
-          "https://unpkg.com/material-page-cxy@0.1.1/build/lowcode/render/default/view.css"
+          "https://unpkg.com/material-page-cxy@0.1.2/build/lowcode/render/default/view.js",
+          "https://unpkg.com/material-page-cxy@0.1.2/build/lowcode/render/default/view.css"
         ]
       },
       "advancedEditUrls": {}
@@ -90,15 +90,15 @@
       "exportName": "MaterialPageCxyMeta",
       "npm": {
         "package": "material-page-cxy",
-        "version": "0.1.1"
+        "version": "0.1.2"
       },
-      "url": "https://unpkg.com/material-page-cxy@0.1.1/build/lowcode/meta.js",
+      "url": "https://unpkg.com/material-page-cxy@0.1.2/build/lowcode/meta.js",
       "urls": {
-        "default": "https://unpkg.com/material-page-cxy@0.1.1/build/lowcode/meta.js"
+        "default": "https://unpkg.com/material-page-cxy@0.1.2/build/lowcode/meta.js"
       },
       "advancedUrls": {
         "default": [
-          "https://unpkg.com/material-page-cxy@0.1.1/build/lowcode/meta.js"
+          "https://unpkg.com/material-page-cxy@0.1.2/build/lowcode/meta.js"
         ]
       }
     }

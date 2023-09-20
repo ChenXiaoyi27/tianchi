@@ -1,6 +1,6 @@
 import { IPublicModelPluginContext } from '@alilc/lowcode-types';
 import { injectAssets } from '@alilc/lowcode-plugin-inject';
-import assets from '../../services/assets.json';
+// import assets from '../../services/assets.json';
 import { getPageSchema } from '../../services';
 import { getUrlParams } from '../../utils/utils';
 import { PreviewUrlParams } from 'src/types';
@@ -17,7 +17,8 @@ const EditorInitPlugin = (ctx: IPublicModelPluginContext, options: any) => {
       config.set('scenarioInfo', scenarioInfo);
 
       // 设置物料描述
-      await material.setAssets(await injectAssets(assets));
+      const assetsJsonRes = await (await fetch('/api/outside/assets/json')).json();
+      await material.setAssets(await injectAssets(assetsJsonRes.data));
 
       const { page_id } = getUrlParams() as PreviewUrlParams;
       const version_id = '';
