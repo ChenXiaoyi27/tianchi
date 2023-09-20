@@ -10,5 +10,5 @@ RUN npm run build
 
 FROM nginx:stable-alpine
 #FROM registry.cn-hangzhou.aliyuncs.com/chenxiaoyi/nginx:1.22.1
-COPY --from=0 /app/build /usr/share/nginx/html
+COPY --from=0 /app/build /usr/local/nginx/html
 COPY --from=0 /app/nginx.conf /etc/nginx/conf.d/default.conf
